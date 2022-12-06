@@ -5,6 +5,7 @@ class Tubarao {
         this.direcao = direcao;
         this.toDelete = false;
         this.colidiu = estado;
+        this.powerUp = false;
     }
 
     render() {
@@ -22,6 +23,16 @@ class Tubarao {
               this.x-=3;
             }
         }
+
+        if(this.powerUp) {
+            if(frameCount % 5 == 0) {
+                if(this.direcao == 'LEFT') {
+                    image(tubarao_left_effect, this.x, this.y);
+                } else {
+                    image(tubarao_right_effect, this.x, this.y);
+                }
+            }  
+        }
     }
 
     delete() {
@@ -33,4 +44,5 @@ class Tubarao {
     colidir() {
         this.colidiu = true;
     }
+
 }
